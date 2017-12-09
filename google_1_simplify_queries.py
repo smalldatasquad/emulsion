@@ -27,7 +27,7 @@ path_to_json = 'Searches/' if args['dir'] == None else args['dir']
 print " "
 print " ===  Reading JSON files in '" + path_to_json + "'..."
 
-json_files = [path_to_json + f for f in os.listdir(path_to_json) if f.endswith('.json')]
+json_files = [os.path.join(root, f) for root, subdirs, files in os.walk("Searches") for f in files if f.endswith('.json')]
 
 print " ===  Combining JSON files...",
 
