@@ -1,5 +1,5 @@
 import csv
-import os
+import os, errno
 import io
 import json
 from pprint import pprint
@@ -71,24 +71,27 @@ if(args['output'] == None):
     daterange += timestamp_usec_to_datetime(simplejson[0]['timestamp_usec']).strftime("%m-%d-%Y")
     daterange += "_to_"
     daterange += timestamp_usec_to_datetime(simplejson[-1]['timestamp_usec']).strftime("%m-%d-%Y")
-    filebase = 'all_google_queries_simplified__' + daterange
-    filebase = 'all_google_queries_simplified' ## MAKING THIS SIMPLIFIED
+    #filebase = 'all_google_queries_simplified__' + daterange
+    filebase = 'all_google_queries_simplified' 
 else:
     filebase = args['output']
 
 print " ===  Writing CSV..."
 
-############ write a csv!
 
-helpers.csvsave(filebase + '.csv', simplejson)
+########### create directory
+helpers.create_dir(helpers.outputdir)
+
+########### write a csv!
+helpers.csvsave(helpers.outputdir + filebase + '.csv', simplejson)
 
 print " ===  Writing JSON..."
 
 ########### write a JSON!
 
-helpers.jsonsave(filebase + '.json', simplejson)
+helpers.jsonsave(helpers.outputdir + filebase + '.json', simplejson)
 
-print " ===  Done! Files were created at '" + filebase + ".csv' and '" + filebase + ".json'"
+print " ===  Done! Files were created at '" + helpers.outputdir + filebase + ".csv' and '" + helpers.outputdir + filebase + ".json'"
 if(args['output'] == None):
     print " ===  Now copy and paste `python google_2_pickout_queries.py` and press enter!"
 else:

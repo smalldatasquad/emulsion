@@ -260,15 +260,15 @@ def queryrun():
         else:
             filebase = os.path.splitext(jsonfilename)[0] + frameprint
 
-        helpers.csvsave(filebase + ".csv", result)
-#        helpers.jsonsave(filebase + ".json", result)
+        helpers.csvsave(helpers.outputdir + filebase + ".csv", result)
+#        helpers.jsonsave(helpers.outputdir + filebase + ".json", result)
 
         print "\n"
         print logstring
         print " ===  " + frameprint
         print " ===  # of results:", len(result)
-        print " ===  Frame was saved at '" + filebase + ".csv'"
-        print "                  and at '" + filebase + ".json'"
+        print " ===  Frame was saved at '" + helpers.outputdir + filebase + ".csv'"
+#        print "                  and at '" helpers.outputdir + filebase + ".json'"
         print " "
 
 
@@ -277,8 +277,7 @@ def main():
     global allqueries, args, jsonfilename
 
     parseargs()
-
-    with open(jsonfilename) as data:
+    with open(helpers.outputdir + jsonfilename) as data:
         allqueries = json.load(data)
 
     print " "

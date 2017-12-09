@@ -1,3 +1,4 @@
+import os, errno
 import csv
 import io
 import json
@@ -16,3 +17,11 @@ def jsonsave(filename, data):
     with io.open(filename, 'w', encoding='utf-8') as f:
         f.write(json.dumps(data, ensure_ascii=False))
 
+def create_dir(filedir):
+    try:
+        os.makedirs(filedir)
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
+
+outputdir = "Processed_Searches/"
