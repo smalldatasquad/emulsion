@@ -88,6 +88,6 @@ If you're totally comfy with Python, then you probably know what you're doing. S
 #### Check out these influential and daring projects using personal search history:
 - Isabel Donlon’s *private: do not open* at http://isabel-donlon.com/projects/private
 - Wip Sirikolkarn's *Me, Myself, and io* at http://wipawe.com/me-myself-io/
-- Martine Syms' EverythingIveEverWantedtoKnow.com* at http://rhizome.org/editorial/2017/dec/15/growing-up-google-martine-syms/
+- Martine Syms' *EverythingIveEverWantedtoKnow.com* at http://rhizome.org/editorial/2017/dec/15/growing-up-google-martine-syms/
 
 
