@@ -85,4 +85,10 @@ If you're totally comfy with Python, then you probably know what you're doing. S
 - Pattern recognition: are there repeated searches over time?
 - Clustering: Is it possible to use vector representations of sentences and do some sort of dimensionality reduction (T-SNE) or clustering (K-means?) to see what major clusters of 'search terms' are? Could these be a way to identify "How many Cindy-Sherman-esque identities do I have?"
 
+#### Influential Projects
+**Check out these influential and daring projects using personal search history:**
+- Isabel Donlon’s *private: do not open* at isabel-donlon.com/projects/private
+- Wip Sirikolkarn's *Me, Myself, and io* wipawe.com/me-myself-io/
+- Martine Syms' EverythingIveEverWantedtoKnow.com* http://rhizome.org/editorial/2017/dec/15/growing-up-google-martine-syms/
+
 
