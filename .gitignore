@@ -1,5 +1,5 @@
 .DS_Store
-/Searches
+/TakeoutData/*.json
 *.swp
 *.pyc
 all_google_queries_simplified*.*
