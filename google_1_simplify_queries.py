@@ -95,7 +95,7 @@ print(" ===  Writing CSV...")
 helpers.create_dir(helpers.outputdir)
 
 ########### write a csv!
-helpers.csvsave(helpers.outputdir + filebase + '.csv', simplejson)
+helpers.csvsave(helpers.outputdir + filebase + '_tsv.txt', simplejson)
 
 print(" ===  Writing JSON...")
 
@@ -103,7 +103,7 @@ print(" ===  Writing JSON...")
 
 helpers.jsonsave(helpers.outputdir + filebase + '.json', simplejson)
 
-print(" ===  Done! Files were created at '" + helpers.outputdir + filebase + ".csv' and '" + helpers.outputdir + filebase + ".json'")
+print(" ===  Done! Files were created at '" + helpers.outputdir + filebase + "_tsv.txt' and '" + helpers.outputdir + filebase + ".json'")
 if(args['output'] == None):
     print(" ===  Now copy and paste `python google_2_pickout_queries.py` and press enter!")
 else:
