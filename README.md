@@ -12,7 +12,12 @@ These are two Python scripts.
 
 1. Download your search queries from [Google Takeout](https://takeout.google.com/settings/takeout/custom/search). (This can take some time, so try to do this as soon as possible!)
 
-2. If you open the .zip archive, there should be a folder called `Searches`. Copy this to this folder (the one that `google_1_simplify_queries.py` is in).
+As of January 2019, the search queries are in `My Activity`, and you want the JSON format:
+![my_activity.png](imgs/my_activity.png)
+
+Google will process this request and eventually send you an email to a download link for a .zip, named something like `takeout-20190125T194400Z-001.zip`. 
+
+2. Open the .zip archive, and navigate to `Takeout > My Activity > Search`. There should be a file called `MyActivity.json`. Copy this to this folder (the one that `google_1_simplify_queries.py` is in).
 
 3. In a terminal such as Terminal (Mac) or Command Prompt (PC), navigate to this folder. For help navigating, see [this for Windows](http://www.digitalcitizen.life/command-prompt-how-use-basic-commands) or [this for OSX/Linux](https://www.digitalocean.com/community/tutorials/how-to-use-cd-pwd-and-ls-to-explore-the-file-system-on-a-linux-server).
 
