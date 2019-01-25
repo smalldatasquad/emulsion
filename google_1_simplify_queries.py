@@ -24,23 +24,23 @@ args = vars(parser.parse_args())
 ############## get all filenames
 path_to_json = 'Searches/' if args['dir'] == None else args['dir']
 
-print " "
-print " ===  Reading JSON files in '" + path_to_json + "'..."
+print(" ")
+print(" ===  Reading JSON files in '" + path_to_json + "'...")
 
 json_files = [os.path.join(root, f) for root, subdirs, files in os.walk("Searches") for f in files if f.endswith('.json')]
 
-print " ===  Combining JSON files...",
+print(" ===  Combining JSON files...",)
 
 ############# concat all jsons into list (let's hope this doesn't break on large numbers of json)
 alljsons = []
 for f in json_files:
-    print ".",
+    print(".",)
     with open(f) as data:
         d = json.load(data)
         alljsons.extend( d['event'] )
 
-print ""
-print " ===  Creating simple JSON..."
+print("")
+print(" ===  Creating simple JSON...")
 
 ############ make a super simple json
 simplejson = []
@@ -76,7 +76,7 @@ if(args['output'] == None):
 else:
     filebase = args['output']
 
-print " ===  Writing CSV..."
+print(" ===  Writing CSV...")
 
 
 ########### create directory
@@ -85,15 +85,15 @@ helpers.create_dir(helpers.outputdir)
 ########### write a csv!
 helpers.csvsave(helpers.outputdir + filebase + '.csv', simplejson)
 
-print " ===  Writing JSON..."
+print(" ===  Writing JSON...")
 
 ########### write a JSON!
 
 helpers.jsonsave(helpers.outputdir + filebase + '.json', simplejson)
 
-print " ===  Done! Files were created at '" + helpers.outputdir + filebase + ".csv' and '" + helpers.outputdir + filebase + ".json'"
+print(" ===  Done! Files were created at '" + helpers.outputdir + filebase + ".csv' and '" + helpers.outputdir + filebase + ".json'")
 if(args['output'] == None):
-    print " ===  Now copy and paste `python google_2_pickout_queries.py` and press enter!"
+    print(" ===  Now copy and paste `python google_2_pickout_queries.py` and press enter!")
 else:
-    print " ===  Now try running `python google_2_pickout_queries.py -j " + filebase + ".json` ! "
-print " "
+    print(" ===  Now try running `python google_2_pickout_queries.py -j " + filebase + ".json` ! ")
+print(" ")

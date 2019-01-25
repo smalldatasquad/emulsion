@@ -52,7 +52,7 @@ def midnight_search(query):                 # 'define' a function called 'midnig
                                             # (A function is a piece of code that often takes in something,
                                             # does something to it, and often spits it out again, like a pasta maker.)
 
-#    print query
+#    print(query)
                                             # a 'query' object has a bunch of attributes 'attached' to it.
                                             # if you want to see what they are, uncomment the above line
                                             # by removing the '#' at the start of the line.
@@ -167,22 +167,22 @@ def simpleprint(q):
 def get_frame_user_input(opts):
     num = -1
     while num == -1: #
-        print " ===== Choose how you want to reframe your data:"
-        print " ===== Select one of our premade frames (e.g. 2)"
-        print " ===== Or type in text to search."
-        print "       Text separated by vertical bars '|' will searched as an OR query, ANYthing matching all terms (e.g. data|cindy): "
-        print "       Text separated by plus symbols  '+' will searched as an AND query, EVERYthing matching all terms (e.g. when+why): "
-        print " "
-        print " ===== Or to exit, hit control-C. "
-        print " "
+        print(" ===== Choose how you want to reframe your data:")
+        print(" ===== Select one of our premade frames (e.g. 2)")
+        print(" ===== Or type in text to search.")
+        print("       Text separated by vertical bars '|' will searched as an OR query, ANYthing matching all terms (e.g. data|cindy): ")
+        print("       Text separated by plus symbols  '+' will searched as an AND query, EVERYthing matching all terms (e.g. when+why): ")
+        print(" ")
+        print(" ===== Or to exit, hit control-C. ")
+        print(" ")
         for i, k in enumerate(opts):
-            print " (", i, ") :",  k
-        print " "
-        inp = raw_input(" ---> ")
+            print(" (", i, ") :",  k)
+        print(" ")
+        inp = input(" ---> ")
         try:
             num = int(inp) # triggers exception on non-integer input
             if(num < 0 or num >= len(opts)):
-                print "Choose a valid number!"
+                print("Choose a valid number!")
                 num = -1
             else:
                 logstring = " === Searching with frame: "+ opts[num]
@@ -191,7 +191,7 @@ def get_frame_user_input(opts):
             if("+" in inp):
                 strs = inp.lower().split("+") #TODO: better non-string handling
                 logstring = " === Searching with : "+ " AND ".join(strs)
-                print logstring
+                print(logstring)
                 return ("str-and", strs, logstring)
             else:
                 strs = inp.lower().split("|") #TODO: better non-string handling
@@ -200,8 +200,8 @@ def get_frame_user_input(opts):
 
 
 def exit_handler(signal, frame):
-	print ""
-	print " *** Exiting! ***"
+	print("")
+	print(" *** Exiting! ***")
 	sys.exit(0)
 
 def parseargs():
@@ -250,7 +250,7 @@ def queryrun():
 
 
     if(len(result) == 0):
-        print " === NO RESULTS!"
+        print(" === NO RESULTS!")
     else:
         ###### PRINT AND WRITE FILES!
         simpleprint(result)
@@ -263,13 +263,13 @@ def queryrun():
         helpers.csvsave(helpers.outputdir + filebase + ".csv", result)
 #        helpers.jsonsave(helpers.outputdir + filebase + ".json", result)
 
-        print "\n"
-        print logstring
-        print " ===  " + frameprint
-        print " ===  # of results:", len(result)
-        print " ===  Frame was saved at '" + helpers.outputdir + filebase + ".csv'"
-#        print "                  and at '" helpers.outputdir + filebase + ".json'"
-        print " "
+        print("\n")
+        print(logstring)
+        print(" ===  " + frameprint)
+        print(" ===  # of results:", len(result))
+        print(" ===  Frame was saved at '" + helpers.outputdir + filebase + ".csv'")
+#        print("                  and at '" helpers.outputdir + filebase + ".json'")
+        print(" ")
 
 
 
@@ -280,9 +280,9 @@ def main():
     with open(helpers.outputdir + jsonfilename) as data:
         allqueries = json.load(data)
 
-    print " "
-    print " ===== Loaded JSON file called " + jsonfilename + " !"
-    print " "
+    print(" ")
+    print(" ===== Loaded JSON file called " + jsonfilename + " !")
+    print(" ")
 
     while True:
         queryrun()
